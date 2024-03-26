@@ -6,8 +6,8 @@ abstract public class Unit {
 	private int pos;
 	private int hp;
 
-	private int max;
-	private Random r;
+	public int max;
+	public Random r;
 
 	public Unit(int pos, int hp, int max) {
 		this.pos = pos;

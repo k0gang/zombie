@@ -4,13 +4,24 @@ package zombie;
 
 public class Hero extends Unit{
 	private int heal;
-	private int magic;
 	private int power;
 	
-	public Hero(int pos, int hp, int max, int portion,int magic,int heal) {
+	public Hero(int pos, int hp, int max, int heal) {
 		super(pos,hp,max);
 		this.heal = heal;
-		this.magic = magic;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("pos : %d, hp : %d, max : %d, heal : %d",this.getPos(),this.getMax(),max,heal);
+	}
+	
+	public void setHeal(int heal) {
+		this.heal = heal;
+	}
+	
+	public int getHeal() {
+		return this.heal;
 	}
 	
 	@Override
@@ -34,12 +45,8 @@ public class Hero extends Unit{
 			if(boss.getHp() <= 0)
 				boss.setHp(0);
 			
-			System.out.printf("HERO가 %d의 피해를 입힘\nBOSS shield : %d\nBOSS hp : %d",
+			System.out.printf("HERO가 %d의 피해를 입힘\nBOSS shield : %d\nBOSS hp : %d\n",
 					power,boss.getShield(),boss.getHp());
-			
-			if(boss.getHp() == 0)
-				System.out.println("HERO가 BOSS를 물리쳤다!");
-			
 		}else {
 			
 			power = r.nextInt(max)+1;
@@ -47,10 +54,7 @@ public class Hero extends Unit{
 			if(enemy.getHp()<= 0) 
 				enemy.setHp(0);
 			
-			System.out.printf("HERO가 %d의 피해를 입힘\nZOMBIE hp : %d",power,enemy.getHp());
-			
-			if(enemy.getHp() == 0)
-				System.out.println("HERO가 ZOMBIE를 물리쳤다!");
+			System.out.printf("HERO가 %d의 피해를 입힘\nZOMBIE hp : %d\n",power,enemy.getHp());
 		}
 	}
 	

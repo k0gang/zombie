@@ -1,6 +1,6 @@
 package zombie;
 
-public class Zombie extends Unit {
+public class Zombie extends Unit{
 	private int power;
 	
 	public Zombie(int pos, int hp, int max) {
@@ -19,6 +19,6 @@ public class Zombie extends Unit {
 		this.setHp(this.getHp()+power/2);
 		
 		System.out.printf("ZOMBIE가 %d의 피해를 입히고 %d만큼 회복\nHero hp : %d"
-				+ "\nZombie hp : %d",power,hero.getHp(),this.getHp());
+				+ "\nZombie hp : %d\n",power,power/2,hero.getHp(),this.getHp());
 	}
 }
