@@ -7,7 +7,7 @@ public class Hero extends Unit{
 	private int magic;
 	private int power;
 	
-	public Hero(int pos, int hp, int max, int portion,int magic) {
+	public Hero(int pos, int hp, int max, int portion,int magic,int heal) {
 		super(pos,hp,max);
 		this.heal = heal;
 		this.magic = magic;
@@ -52,5 +52,14 @@ public class Hero extends Unit{
 			if(enemy.getHp() == 0)
 				System.out.println("HERO가 ZOMBIE를 물리쳤다!");
 		}
+	}
+	
+	public void heal() {
+		if(heal > 0) {
+			setHp(getHp() + 100);
+			System.out.printf("HERO의 치유스킬로 체력회복\nHERO hp : %d",getHp());
+			heal --;
+		}else
+			System.out.println("치유스킬을 모두 사용했습니다");
 	}
 }
